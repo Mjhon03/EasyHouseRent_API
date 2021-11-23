@@ -21,9 +21,9 @@ namespace EasyHouseRent.Controllers
 
 
         //Mostrar todos los clientes de la base de datos
-        public IEnumerable<Users> AllClients()
+        public IEnumerable<Users> AllUsers()
         {
-            string sql = "SELECT * FROM usuarios";
+            string sql = "SELECT idUsuarios,nombre,apellidos,fechaNacimiento,telefono,email,estado,iddepartamento FROM usuarios";
             DataTable dt = db.getTable(sql);
             List<Users> usersList = new List<Users>();
             usersList = (from DataRow dr in dt.Rows
@@ -35,7 +35,7 @@ namespace EasyHouseRent.Controllers
                               fecNacimiento = dr["fechaNacimiento"].ToString(),
                               telefono = Convert.ToInt32(dr["telefono"]),
                               email = dr["email"].ToString(),
-                              contraseña = dr["contraseña"].ToString(),
+                              //contraseña = dr["contraseña"].ToString(),
                               estado = dr["estado"].ToString(),
                               iddepartamento = Convert.ToInt32(dr["iddepartamento"])
 

@@ -8,5 +8,9 @@
     <Folder Include="Model\Entities\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="MySql.Data" Version="8.0.27" />
+  </ItemGroup>
+
 
 </Project>
