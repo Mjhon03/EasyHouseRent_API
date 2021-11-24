@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\mjhon\\OneDrive\\Escritorio\\EasyHouseRent\\EasyHouseRent\\EasyHouseRent\\EasyHouseRent.csproj": {}
+    "C:\\Users\\julia\\OneDrive\\Escritorio\\easyApi\\EasyHouseRent_API\\EasyHouseRent\\EasyHouseRent.csproj": {}
   },
   "projects": {
-    "C:\\Users\\mjhon\\OneDrive\\Escritorio\\EasyHouseRent\\EasyHouseRent\\EasyHouseRent\\EasyHouseRent.csproj": {
+    "C:\\Users\\julia\\OneDrive\\Escritorio\\easyApi\\EasyHouseRent_API\\EasyHouseRent\\EasyHouseRent.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mjhon\\OneDrive\\Escritorio\\EasyHouseRent\\EasyHouseRent\\EasyHouseRent\\EasyHouseRent.csproj",
+        "projectUniqueName": "C:\\Users\\julia\\OneDrive\\Escritorio\\easyApi\\EasyHouseRent_API\\EasyHouseRent\\EasyHouseRent.csproj",
         "projectName": "EasyHouseRent",
-        "projectPath": "C:\\Users\\mjhon\\OneDrive\\Escritorio\\EasyHouseRent\\EasyHouseRent\\EasyHouseRent\\EasyHouseRent.csproj",
-        "packagesPath": "C:\\Users\\mjhon\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mjhon\\OneDrive\\Escritorio\\EasyHouseRent\\EasyHouseRent\\EasyHouseRent\\obj\\",
+        "projectPath": "C:\\Users\\julia\\OneDrive\\Escritorio\\easyApi\\EasyHouseRent_API\\EasyHouseRent\\EasyHouseRent.csproj",
+        "packagesPath": "C:\\Users\\julia\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\julia\\OneDrive\\Escritorio\\easyApi\\EasyHouseRent_API\\EasyHouseRent\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\mjhon\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\julia\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -39,12 +39,6 @@
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
-          "dependencies": {
-            "MySql.Data": {
-              "target": "Package",
-              "version": "[8.0.27, )"
-            }
-          },
           "imports": [
             "net461",
             "net462",

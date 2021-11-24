@@ -1,0 +1,5 @@
+C:\Users\julia\OneDrive\Escritorio\easyApi\EasyHouseRent_API\EasyHouseRent\obj\Debug\netcoreapp3.1\EasyHouseRent.csproj.AssemblyReference.cache
+C:\Users\julia\OneDrive\Escritorio\easyApi\EasyHouseRent_API\EasyHouseRent\obj\Debug\netcoreapp3.1\EasyHouseRent.AssemblyInfoInputs.cache
+C:\Users\julia\OneDrive\Escritorio\easyApi\EasyHouseRent_API\EasyHouseRent\obj\Debug\netcoreapp3.1\EasyHouseRent.AssemblyInfo.cs
+C:\Users\julia\OneDrive\Escritorio\easyApi\EasyHouseRent_API\EasyHouseRent\obj\Debug\netcoreapp3.1\EasyHouseRent.csproj.CoreCompileInputs.cache
+C:\Users\julia\OneDrive\Escritorio\easyApi\EasyHouseRent_API\EasyHouseRent\obj\Debug\netcoreapp3.1\EasyHouseRent.MvcApplicationPartsAssemblyInfo.cache
