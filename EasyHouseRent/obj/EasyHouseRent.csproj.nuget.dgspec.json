@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Juan\\Desktop\\EasyHouseRent_API\\EasyHouseRent\\EasyHouseRent.csproj": {}
+    "C:\\Users\\Juan\\Desktop\\C#\\EasyHouseRent_API\\EasyHouseRent\\EasyHouseRent.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Juan\\Desktop\\EasyHouseRent_API\\EasyHouseRent\\EasyHouseRent.csproj": {
+    "C:\\Users\\Juan\\Desktop\\C#\\EasyHouseRent_API\\EasyHouseRent\\EasyHouseRent.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Juan\\Desktop\\EasyHouseRent_API\\EasyHouseRent\\EasyHouseRent.csproj",
+        "projectUniqueName": "C:\\Users\\Juan\\Desktop\\C#\\EasyHouseRent_API\\EasyHouseRent\\EasyHouseRent.csproj",
         "projectName": "EasyHouseRent",
-        "projectPath": "C:\\Users\\Juan\\Desktop\\EasyHouseRent_API\\EasyHouseRent\\EasyHouseRent.csproj",
+        "projectPath": "C:\\Users\\Juan\\Desktop\\C#\\EasyHouseRent_API\\EasyHouseRent\\EasyHouseRent.csproj",
         "packagesPath": "C:\\Users\\Juan\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Juan\\Desktop\\EasyHouseRent_API\\EasyHouseRent\\obj\\",
+        "outputPath": "C:\\Users\\Juan\\Desktop\\C#\\EasyHouseRent_API\\EasyHouseRent\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Juan\\AppData\\Roaming\\NuGet\\NuGet.Config",
