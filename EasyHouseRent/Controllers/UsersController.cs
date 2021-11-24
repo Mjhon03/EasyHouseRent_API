@@ -1,4 +1,5 @@
 ﻿using EasyHouseRent.Model;
+using EasyHouseRent.Model.Entities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -21,23 +22,23 @@ namespace EasyHouseRent.Controllers
 
 
         //Mostrar todos los clientes de la base de datos
-        public IEnumerable<Users> AllUsers()
+        public IEnumerable<Usuarios> AllUsers()
         {
             string sql = "SELECT * FROM usuarios";
             DataTable dt = db.getTable(sql);
-            List<Users> usersList = new List<Users>();
+            List<Usuarios> usersList = new List<Usuarios>();
             usersList = (from DataRow dr in dt.Rows
-                          select new Users()
+                          select new Usuarios()
                           {
                               idUsuarios = Convert.ToInt32(dr["idUsuarios"]),
-                              nombres = dr["nombre"].ToString(),
+                              nombre = dr["nombre"].ToString(),
                               apellidos = dr["apellidos"].ToString(),
-                              fecNacimiento = dr["fechaNacimiento"].ToString(),
+                              fechaNacimiento = dr["fechaNacimiento"].ToString(),
                               telefono = Convert.ToInt32(dr["telefono"]),
                               email = dr["email"].ToString(),
                               contraseña = dr["contraseña"].ToString(),
                               estado = dr["estado"].ToString(),
-                              iddepartamento = Convert.ToInt32(dr["iddepartamento"])
+                              idDepartamento = Convert.ToInt32(dr["iddepartamento"])
 
                           }).ToList();
 
