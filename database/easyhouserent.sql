@@ -14,68 +14,61 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 -- -----------------------------------------------------
 -- Schema easyhouserent
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `easyhouserent` DEFAULT CHARACTER SET utf8mb4 ;
+CREATE SCHEMA IF NOT EXISTS `easyhouserent` DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 USE `easyhouserent` ;
 
 -- -----------------------------------------------------
--- Table `easyrenthoouse`.`departamento`
+-- Table `easyhouserent`.`departamento`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `easyhouserent`.`departamento` (
-  `iddepartamento` INT(11) NOT NULL,
+  `iddepartamento` INT NOT NULL,
   `nombre` CHAR(100) NOT NULL,
   PRIMARY KEY (`iddepartamento`))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4;
-
+ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- -----------------------------------------------------
--- Table `easyrenthoouse`.`usuarios`
+-- Table `easyhouserent`.`usuarios`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `easyhouserent`.`usuarios` (
-  `idUsuarios` INT(11) NOT NULL AUTO_INCREMENT,
+  `idUsuarios` INT NOT NULL AUTO_INCREMENT,
   `nombre` CHAR(80) NOT NULL,
   `apellidos` CHAR(80) NOT NULL,
   `fechaNacimiento` DATE NOT NULL,
-  `telefono` INT(11) NOT NULL,
+  `telefono` INT NOT NULL,
   `email` VARCHAR(120) NOT NULL,
   `contraseña` VARBINARY(200) NOT NULL,
   `estado` CHAR(1) NOT NULL,
-  `iddepartamento` INT(11) NOT NULL,
+  `iddepartamento` INT NOT NULL,
   PRIMARY KEY (`idUsuarios`),
   UNIQUE INDEX `email_UNIQUE` (`email` ASC) VISIBLE,
   INDEX `iddepartamento_idx` (`iddepartamento` ASC) VISIBLE,
   CONSTRAINT `iddepartamento`
     FOREIGN KEY (`iddepartamento`)
-    REFERENCES `easyhouserent`.`departamento` (`iddepartamento`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4;
+    REFERENCES `easyhouserent`.`departamento` (`iddepartamento`))
+ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 
 -- -----------------------------------------------------
--- Table `easyrenthoouse`.`tipoestructura`
+-- Table `easyhouserent`.`tipoestructura`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `easyhouserent`.`tipoestructura` (
-  `idtipoEstructura` INT(11) NOT NULL,
+  `idtipoEstructura` INT NOT NULL,
   `nombre` CHAR(100) NOT NULL,
   PRIMARY KEY (`idtipoEstructura`))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4;
-
+ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- -----------------------------------------------------
--- Table `easyrenthoouse`.`anuncios`
+-- Table `easyhouserent`.`anuncios`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `easyhouserent`.`anuncios` (
-  `idanuncios` INT(11) NOT NULL AUTO_INCREMENT,
-  `idusuario` INT(11) NOT NULL,
+  `idanuncios` INT NOT NULL AUTO_INCREMENT,
+  `idusuario` INT NOT NULL,
   `titulo` CHAR(80) NOT NULL,
   `descripcion` VARCHAR(3000) NOT NULL,
-  `puntuacion` INT(11) NOT NULL,
+  `puntuacion` INT NOT NULL,
   `direccion` VARCHAR(150) NOT NULL,
   `estado` CHAR(1) NOT NULL,
-  `tipoEstructura` INT(11) NOT NULL,
+  `tipoEstructura` INT NOT NULL,
   `valor` FLOAT NOT NULL,
   `fecha` DATE NOT NULL,
   `certificado` VARCHAR(500) NOT NULL,
@@ -85,41 +78,29 @@ CREATE TABLE IF NOT EXISTS `easyhouserent`.`anuncios` (
   INDEX `tipoEstructura_idx` (`tipoEstructura` ASC) VISIBLE,
   CONSTRAINT `idusuario`
     FOREIGN KEY (`idusuario`)
-    REFERENCES `easyhouserent`.`usuarios` (`idUsuarios`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+    REFERENCES `easyhouserent`.`usuarios` (`idUsuarios`),
   CONSTRAINT `tipoEstructura`
     FOREIGN KEY (`tipoEstructura`)
-    REFERENCES `easyhouserent`.`tipoestructura` (`idtipoEstructura`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4;
-
+    REFERENCES `easyhouserent`.`tipoestructura` (`idtipoEstructura`))
+ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- -----------------------------------------------------
 -- Table `easyhouserent`.`oferta`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `easyhouserent`.`oferta` (
-  `idoferta` INT(11) NOT NULL,
-  `idanuncio` INT(11) NULL DEFAULT NULL,
-  `idusuario` INT(11) NULL DEFAULT NULL,
+  `idoferta` INT NOT NULL,
+  `idanuncio` INT NULL DEFAULT NULL,
+  `idusuario` INT NULL DEFAULT NULL,
   PRIMARY KEY (`idoferta`),
   INDEX `idanuncio_idx` (`idanuncio` ASC) VISIBLE,
   INDEX `idusuario_idx` (`idusuario` ASC) VISIBLE,
   CONSTRAINT `anuncio`
     FOREIGN KEY (`idanuncio`)
-    REFERENCES `easyhouserent`.`anuncios` (`idanuncios`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+    REFERENCES `easyhouserent`.`anuncios` (`idanuncios`),
   CONSTRAINT `oferta`
     FOREIGN KEY (`idusuario`)
-    REFERENCES `easyhouserent`.`usuarios` (`idUsuarios`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4;
-
+    REFERENCES `easyhouserent`.`usuarios` (`idUsuarios`))
+ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
