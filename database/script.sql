@@ -25,6 +25,24 @@ CREATE TABLE IF NOT EXISTS `easyhouserent`.`departamento` (
   `nombre` CHAR(100) NOT NULL,
   PRIMARY KEY (`iddepartamento`))
 ENGINE = InnoDB
+AUTO_INCREMENT = 2
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
+-- Table `easyhouserent`.`municipios`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `easyhouserent`.`municipios` (
+  `idmunicipio` INT NOT NULL AUTO_INCREMENT,
+  `nombre` CHAR(80) NULL DEFAULT NULL,
+  `departamento` INT NULL DEFAULT NULL,
+  PRIMARY KEY (`idmunicipio`),
+  INDEX `municipio_idx` (`departamento` ASC) VISIBLE,
+  CONSTRAINT `municipio`
+    FOREIGN KEY (`departamento`)
+    REFERENCES `easyhouserent`.`departamento` (`iddepartamento`))
+ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -37,18 +55,23 @@ CREATE TABLE IF NOT EXISTS `easyhouserent`.`usuarios` (
   `nombre` CHAR(80) NOT NULL,
   `apellidos` CHAR(80) NOT NULL,
   `fechaNacimiento` DATE NOT NULL,
-  `telefono` INT NOT NULL,
+  `telefono` CHAR(10) NOT NULL,
   `email` VARCHAR(120) NOT NULL,
   `contraseña` VARCHAR(200) NOT NULL,
   `estado` CHAR(1) NOT NULL,
   `departamento` INT NOT NULL,
+  `municipio` INT NULL DEFAULT NULL,
   PRIMARY KEY (`idusuario`),
-  UNIQUE INDEX `email_UNIQUE` (`email` ASC) VISIBLE,
   INDEX `departamento_idx` (`departamento` ASC) VISIBLE,
+  INDEX `municipios_idx` (`municipio` ASC) VISIBLE,
   CONSTRAINT `departamento`
     FOREIGN KEY (`departamento`)
-    REFERENCES `easyhouserent`.`departamento` (`iddepartamento`))
+    REFERENCES `easyhouserent`.`departamento` (`iddepartamento`),
+  CONSTRAINT `municipios`
+    FOREIGN KEY (`municipio`)
+    REFERENCES `easyhouserent`.`municipios` (`idmunicipio`))
 ENGINE = InnoDB
+AUTO_INCREMENT = 2
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -80,7 +103,6 @@ CREATE TABLE IF NOT EXISTS `easyhouserent`.`anuncios` (
   `valor` FLOAT NOT NULL,
   `fecha` DATE NOT NULL,
   `certificado` VARCHAR(500) NOT NULL,
-  `fotos` VARCHAR(500) NOT NULL,
   PRIMARY KEY (`idanuncio`),
   INDEX `usuarios_idx` (`idusuario` ASC) VISIBLE,
   INDEX `estructura_idx` (`tipoEstructura` ASC) VISIBLE,
