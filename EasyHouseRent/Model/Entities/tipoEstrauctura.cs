@@ -7,7 +7,7 @@ namespace EasyHouseRent.Model.Entities
 {
     public class tipoEstrauctura
     {
-        int idTipoEstructura { get; set; }
-        string nombre { get; set; }
+       public int idTipoEstructura { get; set; }
+       public string nombre { get; set; }
     }
 }

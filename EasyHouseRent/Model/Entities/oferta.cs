@@ -7,8 +7,8 @@ namespace EasyHouseRent.Model.Entities
 {
     public class oferta
     {
-        int idOferta { get; set; }
-        int idAnuncio { get; set; }
-        int idUsuario { get; set; }
-}
+         public  int idOferta { get; set; }
+         public  int idAnuncio { get; set; }
+         public  int idUsuario { get; set; }
+    }
 }

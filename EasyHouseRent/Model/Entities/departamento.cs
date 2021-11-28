@@ -7,7 +7,7 @@ namespace EasyHouseRent.Model.Entities
 {
     public class departamento
     {
-        int idDepartamento { get; set; }
-        string nombre { get; set; }
+        public int iddepartamento { get; set; }
+        public string nombre { get; set; }
     }
 }
