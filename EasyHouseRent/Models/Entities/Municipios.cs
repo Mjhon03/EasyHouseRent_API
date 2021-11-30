@@ -9,6 +9,6 @@ namespace EasyHouseRent.Model.Entities
     {
         public int idmunicipio { set; get; }
         public string nombre { set; get; }
-        public int iddpartamento { set; get; }
+        public int departamento { set; get; }
     }
 }

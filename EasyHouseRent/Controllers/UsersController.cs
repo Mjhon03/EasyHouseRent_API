@@ -51,14 +51,21 @@ namespace EasyHouseRent.Controllers
 
         // POST api/<UsersController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public string Post([FromBody] Usuarios user)
         {
+            string sql = $"insert into usuarios (nombre,apellidos,fechaNacimiento,telefono,email,contraseña,estado,departamento,municipio) values('" + user.nombre + "','" + user.apellidos + "','" + user.fechaNacimiento + "','" + user.telefono + "','" + user.email + "','" + user.contraseña + "','" + user.estado + "','" + user.departamento + "','" + user.municipio + "');";
+            string result = db.executeSql(sql);
+            return result;
         }
 
         // PUT api/<UsersController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        [HttpPut]
+        public string Put( [FromBody]Usuarios user)
         {
+
+            string sql = "insert into usuarios (nombre,apellidos,fechaNacimiento,telefono,email,contraseña,estado) values('" + user.nombre + "','" + user.apellidos + "'," + Convert.ToDateTime(user.fechaNacimiento) + "," + user.telefono + ",'" + user.email + "','" + user.contraseña + "','" + user.estado + ");";
+            string result = db.executeSql(sql);
+            return result;
         }
 
         // DELETE api/<UsersController>/5

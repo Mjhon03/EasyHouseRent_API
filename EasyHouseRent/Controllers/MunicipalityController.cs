@@ -13,49 +13,47 @@ namespace EasyHouseRent.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class DepartmentController : ControllerBase
+    public class MunicipalityController : ControllerBase
     {
-
         BaseData db = new BaseData();
-
-        // GET: api/<DepartmentController>
+        // GET: api/<MunicipalityController>
         [HttpGet]
-        public IEnumerable<Departamento> Get()
+        public IEnumerable<Municipios> Get()
         {
-            string sql = "SELECT * FROM departamento";
+            string sql = "SELECT * FROM municipios";
             DataTable dt = db.getTable(sql);
-            List<Departamento> usersList = new List<Departamento>();
+            List<Municipios> usersList = new List<Municipios>();
             usersList = (from DataRow dr in dt.Rows
-                         select new Departamento()
+                         select new Municipios()
                          {
-                             iddepartamento = Convert.ToInt32(dr["iddepartamento"]),
+                             idmunicipio = Convert.ToInt32(dr["idmunicipio"]),
                              nombre = dr["nombre"].ToString(),
+                             departamento = Convert.ToInt32(dr["departamento"]),
                          }).ToList();
 
             return usersList;
         }
 
-        // GET api/<DepartmentController>/5
+        // GET api/<MunicipalityController>/5
         [HttpGet("{id}")]
         public string Get(int id)
         {
-            string nombre = "dabio";
-            return nombre;
+            return "value";
         }
 
-        // POST api/<DepartmentController>
+        // POST api/<MunicipalityController>
         [HttpPost]
         public void Post([FromBody] string value)
         {
         }
 
-        // PUT api/<DepartmentController>/5
+        // PUT api/<MunicipalityController>/5
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] string value)
         {
         }
 
-        // DELETE api/<DepartmentController>/5
+        // DELETE api/<MunicipalityController>/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {

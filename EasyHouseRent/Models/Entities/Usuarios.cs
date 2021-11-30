@@ -10,7 +10,7 @@ namespace EasyHouseRent.Model.Entities
         public int idusuario { set; get; }
         public string nombre { set; get; }
         public string apellidos { set; get; }
-        //public DateTime fechaNacimiento { set; get; }
+        public string fechaNacimiento { set; get; }
         public string telefono { set; get; }
         public string email { set; get; }
         public string contraseña { set; get; }
