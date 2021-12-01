@@ -16,7 +16,7 @@ namespace EasyHouseRent.Model.Entities
         public string estado { set; get;}
         public int tipoEstructura{ set; get;}
         public float valor {set; get; }
-        // public datetime fecha { set; get;}
+        public string fecha { set; get;}
         public string certificado { set; get; }
 
     }

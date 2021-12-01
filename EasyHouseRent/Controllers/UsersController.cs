@@ -26,7 +26,7 @@ namespace EasyHouseRent.Controllers
             usersList = (from DataRow dr in dt.Rows
                          select new Usuarios()
                          {
-                             idusuario = Convert.ToInt32(dr["idUsuarios"]),
+                             idusuario = Convert.ToInt32(dr["idusuario"]),
                              nombre = dr["nombre"].ToString(),
                              apellidos = dr["apellidos"].ToString(),
                              //fechaNacimiento = dr["fechaNacimiento"].ToString(),//jhon 
@@ -34,7 +34,7 @@ namespace EasyHouseRent.Controllers
                              email = dr["email"].ToString(),
                              contraseña = dr["contraseña"].ToString(),
                              estado = dr["estado"].ToString(),
-                             departamento = Convert.ToInt32(dr["iddepartamento"]),
+                             departamento = Convert.ToInt32(dr["departamento"]),
                              municipio = Convert.ToInt32(dr["municipio"])
 
                          }).ToList();
@@ -53,7 +53,7 @@ namespace EasyHouseRent.Controllers
         [HttpPost]
         public string Post([FromBody] Usuarios user)
         {
-            string sql = $"insert into usuarios (nombre,apellidos,fechaNacimiento,telefono,email,contraseña,estado,departamento,municipio) values('" + user.nombre + "','" + user.apellidos + "','" + user.fechaNacimiento + "','" + user.telefono + "','" + user.email + "','" + user.contraseña + "','" + user.estado + "','" + user.departamento + "','" + user.municipio + "');";
+            string sql = $"insert into usuarios (nombre,apellidos,fechaNacimiento,telefono,email,contraseña,estado,departamento,municipio) values('" + user.nombre + "','" + user.apellidos + "','" + user.fechaNacimiento + "','" + user.telefono + "','" + user.email + "','" + Encrypt.GetSHA256(user.contraseña) + "','" + user.estado + "','" + user.departamento + "','" + user.municipio + "');";
             string result = db.executeSql(sql);
             return result;
         }
