@@ -35,7 +35,13 @@ namespace EasyHouseRent
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            app.UseCors(option =>
+            {
+                option.WithOrigins("http.//localhost:300");
+                option.AllowAnyMethod();
+                option.AllowAnyHeader();
+            });
+            app.UseCors();
             app.UseHttpsRedirection();
 
             app.UseRouting();

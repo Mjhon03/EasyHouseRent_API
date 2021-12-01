@@ -69,8 +69,12 @@ namespace EasyHouseRent.Controllers
 
         // DELETE api/<AdController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public string Delete(int id,[FromBody] Anuncios anuncio)
         {
+            string sql = $"Delete * from anuncios where idanuncio = {id}";
+            string result = db.executeSql(sql);
+
+            return result;
         }
     }
 }

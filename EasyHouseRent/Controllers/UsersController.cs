@@ -29,7 +29,7 @@ namespace EasyHouseRent.Controllers
                              idusuario = Convert.ToInt32(dr["idusuario"]),
                              nombre = dr["nombre"].ToString(),
                              apellidos = dr["apellidos"].ToString(),
-                             //fechaNacimiento = dr["fechaNacimiento"].ToString(),//jhon 
+                           fechaNacimiento = dr["fechaNacimiento"].ToString(),
                              telefono = dr["telefono"].ToString(),
                              email = dr["email"].ToString(),
                              contraseña = dr["contraseña"].ToString(),

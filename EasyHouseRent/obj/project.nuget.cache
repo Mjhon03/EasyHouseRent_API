@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "3q/Y0j/FoQWooxUfo0B3QW+yHwmtNCrSeLxk0JDTV4rl78Yj1pi9dAmN04BwCdZl0Xm5Vrnc9eVfHmo7hlLSTg==",
+  "dgSpecHash": "v2MEMqOHXpbtAS5ML9PUiYabZnbjdmbQG9vm7KkYgypVLby18Tz/qB6kqRxrc/f9lTLfi821W2rjqOVfbsz6PQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\SENA\\3D Objects\\Carlos\\EasyHouseRent_API\\EasyHouseRent\\EasyHouseRent.csproj",
+  "projectFilePath": "C:\\Users\\SENA\\Desktop\\Proyecto\\EasyHouseRent_API\\EasyHouseRent\\EasyHouseRent.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\SENA\\.nuget\\packages\\bouncycastle.netcore\\1.8.5\\bouncycastle.netcore.1.8.5.nupkg.sha512",
     "C:\\Users\\SENA\\.nuget\\packages\\google.protobuf\\3.14.0\\google.protobuf.3.14.0.nupkg.sha512",
