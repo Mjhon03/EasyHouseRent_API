@@ -13,7 +13,7 @@ namespace EasyHouseRent.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class AdController : ControllerBase
+    public class AdvertisementController : ControllerBase
     {
 
         BaseData db = new BaseData(); 
