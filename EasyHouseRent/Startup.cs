@@ -26,6 +26,7 @@ namespace EasyHouseRent
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddCors();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -35,13 +36,9 @@ namespace EasyHouseRent
             {
                 app.UseDeveloperExceptionPage();
             }
-            app.UseCors(option =>
-            {
-                option.WithOrigins("http.//localhost:300");
-                option.AllowAnyMethod();
-                option.AllowAnyHeader();
-            });
-            app.UseCors();
+            app.UseCors(builder => builder.AllowAnyMethod().AllowAnyHeader().AllowAnyOrigin()
+            );
+
             app.UseHttpsRedirection();
 
             app.UseRouting();
