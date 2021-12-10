@@ -45,6 +45,7 @@ namespace EasyHouseRent.Controllers
         [HttpPost]
         public void Post([FromBody] string value)
         {
+
         }
 
         // PUT api/<MunicipalityController>/5

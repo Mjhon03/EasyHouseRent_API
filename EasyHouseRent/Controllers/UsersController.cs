@@ -18,9 +18,9 @@ namespace EasyHouseRent.Controllers
         // GET: api/<UsersController>
         BaseData db = new BaseData(); 
         [HttpGet]
-        public IEnumerable<Usuarios> Get()
+        public IEnumerable<Usuarios> Get([FromBody] Usuarios user)
         {
-            string sql = "SELECT * FROM usuarios";
+            string sql = $"SELECT * FROM usuarios where email = '{user.email}' and contraseña = '{user.contraseña}'";
             DataTable dt = db.getTable(sql);
             List<Usuarios> usersList = new List<Usuarios>();
             usersList = (from DataRow dr in dt.Rows
@@ -29,7 +29,7 @@ namespace EasyHouseRent.Controllers
                              idusuario = Convert.ToInt32(dr["idusuario"]),
                              nombre = dr["nombre"].ToString(),
                              apellidos = dr["apellidos"].ToString(),
-                           fechaNacimiento = dr["fechaNacimiento"].ToString(),
+                             fechaNacimiento = dr["fechaNacimiento"].ToString(),
                              telefono = dr["telefono"].ToString(),
                              email = dr["email"].ToString(),
                              contraseña = dr["contraseña"].ToString(),
@@ -50,12 +50,36 @@ namespace EasyHouseRent.Controllers
         }
 
         // POST api/<UsersController>
-        [HttpPost]
+/*        [HttpPost]
         public string Post([FromBody] Usuarios user)
         {
             string sql = $"insert into usuarios (nombre,apellidos,fechaNacimiento,telefono,email,contraseña,estado,departamento,municipio) values('" + user.nombre + "','" + user.apellidos + "','" + user.fechaNacimiento + "','" + user.telefono + "','" + user.email + "','" + Encrypt.GetSHA256(user.contraseña) + "','" + user.estado + "','" + user.departamento + "','" + user.municipio + "');";
             string result = db.executeSql(sql);
             return result;
+        }*/
+        [HttpPost]
+        public IEnumerable<Usuarios> PostGet([FromBody] Usuarios user)
+        {
+            string sql = $"SELECT * FROM usuarios where email = '{user.email}' and contraseña = '{user.contraseña}'";
+            DataTable dt = db.getTable(sql);
+            List<Usuarios> usersList = new List<Usuarios>();
+            usersList = (from DataRow dr in dt.Rows
+                         select new Usuarios()
+                         {
+                             idusuario = Convert.ToInt32(dr["idusuario"]),
+                             nombre = dr["nombre"].ToString(),
+                             apellidos = dr["apellidos"].ToString(),
+                             fechaNacimiento = dr["fechaNacimiento"].ToString(),
+                             telefono = dr["telefono"].ToString(),
+                             email = dr["email"].ToString(),
+                             contraseña = dr["contraseña"].ToString(),
+                             estado = dr["estado"].ToString(),
+                             departamento = Convert.ToInt32(dr["departamento"]),
+                             municipio = Convert.ToInt32(dr["municipio"])
+
+                         }).ToList();
+
+            return usersList;
         }
 
         // PUT api/<UsersController>/5

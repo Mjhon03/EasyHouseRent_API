@@ -20,9 +20,9 @@ namespace EasyHouseRent.Controllers
 
         // GET: api/<DepartmentController>
         [HttpGet]
-        public IEnumerable<Departamento> Get()
+        public IEnumerable<Departamento> Get([FromBody] Departamento dep)
         {
-            string sql = "SELECT * FROM departamento";
+            string sql = "SELECT * FROM departamento ";
             DataTable dt = db.getTable(sql);
             List<Departamento> usersList = new List<Departamento>();
             usersList = (from DataRow dr in dt.Rows
@@ -37,10 +37,9 @@ namespace EasyHouseRent.Controllers
 
         // GET api/<DepartmentController>/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public void Get(int id)
         {
-            string nombre = "dabio";
-            return nombre;
+
         }
 
         // POST api/<DepartmentController>

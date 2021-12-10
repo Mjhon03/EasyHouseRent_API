@@ -20,9 +20,9 @@ namespace EasyHouseRent.Controllers
 
         // GET: api/<AdController>
         [HttpGet]
-        public IEnumerable<Anuncios> GetAd()
+        public IEnumerable<Anuncios> GetAd([FromBody] Anuncios Ad)
         {
-            string sql = "SELECT * FROM anuncios";
+            string sql = $"SELECT * FROM anuncios where idusuario = '{Ad.idusuario}'";
             DataTable dt = db.getTable(sql);
             List<Anuncios> usersList = new List<Anuncios>();
             usersList = (from DataRow dr in dt.Rows
@@ -71,7 +71,7 @@ namespace EasyHouseRent.Controllers
         [HttpDelete("{id}")]
         public string Delete(int id,[FromBody] Anuncios anuncio)
         {
-            string sql = $"Delete * from anuncios where idanuncio = {id}";
+            string sql = $"Delete * from anuncios where idanuncio = '{id}'";
             string result = db.executeSql(sql);
 
             return result;
